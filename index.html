@@ -23,7 +23,7 @@
                     How was your service?
                 <br>
                 <select id="tipamount" name="service-quality" required>
-                    <option selected disabled>--Choose an option--</option>
+                    <option value="" selected disabled>--Choose an option--</option>
                     <option value=".30">30% - Outstanding</option>
                     <option value=".20">20% - Good</option>
                     <option value=".15">15% - It was ok</option>
@@ -49,14 +49,14 @@
   let bill = document.querySelector('#bill').value;
   let percentage = document.querySelector('#tipamount').value;
   let numOfPeople = document.querySelector('#numofpeople').value;
-
+  
   // validate bill input
   if(bill === ""){
-alert('Please enter a bill amount');
+ return alert('Please enter a bill amount');
   }
   //validate tip percentage
-  if(percentage === ""){
-      alert('Please select a tip amount');
+  if(percentage === 0 ||  percentage === ""){
+      return alert('Please enter a tip amount');
   }
   // validate number of people
 if (numOfPeople ==='' || numOfPeople <= 1){
@@ -73,9 +73,24 @@ if (numOfPeople ==='' || numOfPeople <= 1){
   if(numOfPeople === "" || numOfPeople === 1){
     div.textContent = `Your tip amount is $${tipSplit}.`;
   }
-  div.setAttribute('class','tipdiv');
+  div.setAttribute('id','tipdiv');
   document.body.appendChild(div); 
+
+let button = document.querySelector('#calculate');
+button.setAttribute('onclick','clearPage()');
+button.textContent = "Reset";
+  }
+
+function clearPage(){
+let button = document.querySelector('#calculate');
+button.textContent = "Calculate!";
+button.setAttribute('onclick','calculateTip()');
+document.querySelector('#tipcalculator').reset();
+let tipDiv = document.querySelector('#tipdiv');
+tipDiv.remove('#tipdiv');
+
 }
+
 
     </script>
 </body>

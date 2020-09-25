@@ -1,4 +1,42 @@
-.tipdiv{
+body{
+    background-color: coral;
+}
+header{
+    text-align: center;
+    color: whitesmoke;
+}
+#tipcalculator{
+    display: flex;
+    justify-content: center;
+    background-color: whitesmoke;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#tipdiv{
     color: purple;
     border: 2px solid black;
     margin-top: 20px;
