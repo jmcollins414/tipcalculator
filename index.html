@@ -59,7 +59,7 @@ alert('Please enter a bill amount');
       alert('Please select a tip amount');
   }
   // validate number of people
-if (numOfPeople ===''|| numOfPeople <= 1){
+if (numOfPeople ==='' || numOfPeople <= 1){
     numOfPeople = 1;
 }
 
@@ -70,7 +70,7 @@ if (numOfPeople ===''|| numOfPeople <= 1){
   
   var div = document.createElement('div');
   div.textContent = `Your tip amount is $${tipSplit} each.`;
-  if(numOfPeople === "" || numOfPeople <= 1){
+  if(numOfPeople === "" || numOfPeople === 1){
     div.textContent = `Your tip amount is $${tipSplit}.`;
   }
   div.setAttribute('class','tipdiv');
