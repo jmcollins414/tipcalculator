@@ -11,18 +11,18 @@
         <h1> Tip Calculator</h1>
     </header>
     <main>
-        <form name="tipcalculator" action="index.js">
+        <form id="tipcalculator" name="tipcalculator">
             <div>
                 <label for="bill">
                     How much was your bill?
                 <br>
-                <input id="bill" type="number" placeholder="Bill Amount">
+                <input id="bill" type="number" placeholder="Bill Amount" required>
                 </label>
                 <br>
                 <label for="tipamount">
                     How was your service?
                 <br>
-                <select id="tipamount" name="service-quality">
+                <select id="tipamount" name="service-quality" required>
                     <option selected disabled>--Choose an option--</option>
                     <option value=".30">30% - Outstanding</option>
                     <option value=".20">20% - Good</option>
@@ -38,10 +38,45 @@
                     <input id="numofpeople" type="number" placeholder="Number of people">
                 </label>
                 <br>
-                <button id="calculate" type="button">Calculate!</button>
+                <button id="calculate" type="button" onclick="calculateTip()">Calculate!</button>
             </div>
         </form>
     </main>
-    
+    <script >
+   
+
+  function calculateTip() {
+  let bill = document.querySelector('#bill').value;
+  let percentage = document.querySelector('#tipamount').value;
+  let numOfPeople = document.querySelector('#numofpeople').value;
+
+  // validate bill input
+  if(bill === ""){
+alert('Please enter a bill amount');
+  }
+  //validate tip percentage
+  if(percentage === ""){
+      alert('Please select a tip amount');
+  }
+  // validate number of people
+if (numOfPeople ===''|| numOfPeople <= 1){
+    numOfPeople = 1;
+}
+
+  let tip = bill * percentage;
+  let tipSplit = tip / numOfPeople;
+  tipSplit = tipSplit.toFixed(2);
+  
+  
+  var div = document.createElement('div');
+  div.textContent = `Your tip amount is $${tipSplit} each.`;
+  if(numOfPeople === "" || numOfPeople <= 1){
+    div.textContent = `Your tip amount is $${tipSplit}.`;
+  }
+  div.setAttribute('class','tipdiv');
+  document.body.appendChild(div); 
+}
+
+    </script>
 </body>
 </html>
