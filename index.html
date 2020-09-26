@@ -11,8 +11,9 @@
         <h1> Tip Calculator</h1>
     </header>
     <main>
+        <div id="form-container">
         <form id="tipcalculator" name="tipcalculator">
-            <div>
+            <div id="form-items">
                 <label for="bill">
                     How much was your bill?
                 <br>
@@ -41,6 +42,7 @@
                 <button id="calculate" type="button" onclick="calculateTip()">Calculate!</button>
             </div>
         </form>
+        </div>
     </main>
     <script >
    
@@ -74,7 +76,8 @@ if (numOfPeople ==='' || numOfPeople <= 1){
     div.textContent = `Your tip amount is $${tipSplit}.`;
   }
   div.setAttribute('id','tipdiv');
-  document.body.appendChild(div); 
+  let container = document.querySelector('#form-container');
+  container.appendChild(div); 
 
 let button = document.querySelector('#calculate');
 button.setAttribute('onclick','clearPage()');

@@ -3,14 +3,12 @@ body{
 }
 header{
     text-align: center;
-    color: whitesmoke;
+    color: white;
 }
-#tipcalculator{
-    display: flex;
-    justify-content: center;
-    background-color: whitesmoke;
-    width: 50%;
+#form-container{
+    background-color: white;
 }
+
 
 
 
